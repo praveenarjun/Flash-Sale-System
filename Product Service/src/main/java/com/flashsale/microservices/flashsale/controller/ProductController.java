@@ -1,6 +1,5 @@
 package com.flashsale.microservices.flashsale.controller;
 
-
 import com.flashsale.microservices.flashsale.dto.ProductRequest;
 import com.flashsale.microservices.flashsale.dto.ProductResponse;
 import com.flashsale.microservices.flashsale.model.Product;
@@ -14,6 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/product")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProductController {
     private final ProductService productService;
 

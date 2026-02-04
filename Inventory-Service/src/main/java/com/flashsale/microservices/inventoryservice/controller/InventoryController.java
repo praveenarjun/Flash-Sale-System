@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/inventory")
 @RequiredArgsConstructor
-
+@CrossOrigin(origins = "http://localhost:3000")
 public class InventoryController {
     private final InventoryService inventoryService;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public boolean isInStock(@RequestParam String skuCode,@RequestParam Integer quantity){
-        return inventoryService.isInStock(skuCode,quantity);
+    public boolean isInStock(@RequestParam String skuCode, @RequestParam Integer quantity) {
+        return inventoryService.isInStock(skuCode, quantity);
     }
 }
