@@ -11,6 +11,7 @@ type Product = {
     name: string;
     description: string;
     price: number;
+    imageUrl?: string;
 };
 
 export default function ProductsPage() {
@@ -43,12 +44,16 @@ export default function ProductsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {products.map((product) => (
                     <div key={product.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300 border border-gray-100 flex flex-col">
-                        <div className="h-48 bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
-                            <Tag size={48} className="text-gray-400" />
+                        <div className="h-64 bg-gray-100 flex items-center justify-center overflow-hidden relative">
+                            {product.imageUrl ? (
+                                <img src={product.imageUrl} alt={product.name} className="w-full h-full object-contain p-4 mix-blend-multiply" />
+                            ) : (
+                                <Tag size={48} className="text-gray-400" />
+                            )}
                         </div>
                         <div className="p-6 flex-grow flex flex-col justify-between">
                             <div>
-                                <h2 className="text-xl font-bold mb-2 text-gray-900">{product.name}</h2>
+                                <h2 className="text-xl font-bold mb-2 text-gray-900 line-clamp-2">{product.name}</h2>
                                 <p className="text-gray-600 mb-4 text-sm line-clamp-3">{product.description}</p>
                             </div>
                             <div className="flex justify-between items-center mt-4">

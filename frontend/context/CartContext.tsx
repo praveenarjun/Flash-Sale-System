@@ -11,6 +11,7 @@ export type CartItem = {
     price: number;
     skuCode: string; // Assuming name is skuCode as per plan
     quantity: number;
+    imageUrl?: string;
 };
 
 type CartContextType = {
